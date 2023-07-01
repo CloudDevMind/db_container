@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+    db-cdm:
+        container_name: db-cdm    
+        build: .
+        ports:
+            - "5432:5432"    
+        restart: unless-stopped
+        environment:
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        volumes:
+            - ${POSTGRES_FOLDER}:/var/lib/postgresql/data
